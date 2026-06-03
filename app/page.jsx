@@ -1,283 +1,339 @@
+import Image from "next/image";
+
+const asset = (name) => `/preuni-assets/${name}`;
+
+const stats = [
+  { icon: "pre-icon-4.png", value: "25,000+", text: "Students Helped" },
+  { icon: "pre-icon-3.png", value: "20+ Years", text: "Proven Results" },
+  { icon: "pre-icon-2.png", value: "Structured", text: "Learning System" },
+  { icon: "pre-icon-1.png", value: "Parent Support", text: "Included" },
+];
+
 const familiarItems = [
   {
-    title: "Understands but can’t apply",
-    subtitle: "Struggles to use knowledge in problem-solving or exams.",
+    icon: "pre-uni-icon-10.png",
+    title: "Understands but can't apply",
+    text: "Struggles to use knowledge in problem-solving or exams.",
   },
   {
+    icon: "pre-uni-icon-11.png",
     title: "Writing lacks structure",
-    subtitle: "Finds it hard to adapt across essays, reports and formats.",
+    text: "Finds it hard to adapt across essays, reports and formats.",
   },
   {
+    icon: "pre-uni-icon-12.png",
     title: "Weak grammar and vocabulary",
-    subtitle: "Ideas are there, but clarity and expression are missing.",
+    text: "Ideas are there, but clarity and expression are missing.",
   },
   {
+    icon: "pre-uni-icon-13.png",
     title: "Poor time and exam skills",
-    subtitle: "Runs out of time or doesn’t know how to approach tests.",
+    text: "Runs out of time or doesn't know how to approach tests.",
   },
   {
-    title: "Falling behind in OC and NAPLAN",
-    subtitle: "Needs targeted practice to bridge gaps fast.",
+    icon: "pre-uni-icon-14.png",
+    title: "Falling behind in OC and Selective",
+    text: "Needs targeted practice to bridge gaps fast.",
   },
   {
-    title: "Capable but not confident",
-    subtitle: "Knows the content but lacks consistency under pressure.",
+    icon: "pre-uni-icon-15.png",
+    title: "Capable but underperforming",
+    text: "Knows the content but lacks consistency under pressure.",
   },
 ];
 
-const stepItems = [
-  { number: "01", title: "Free Learning Check", subtitle: "Online or in-centre assessment" },
-  { number: "02", title: "Personalised Learning Plan", subtitle: "Tailored to your child’s needs" },
-  { number: "03", title: "Guided Learning", subtitle: "With human + AI support" },
-  { number: "04", title: "Skill Building", subtitle: "Strengthen weak areas" },
-  { number: "05", title: "Testing & Tracking", subtitle: "Regular tests and progress reports" },
-  { number: "06", title: "Results & Confidence", subtitle: "Better marks, stronger future" },
+const successSteps = [
+  { icon: "pre-uni-icon-16.png", number: "01", title: "Free Learning\nCheck", text: "Online or in-centre\nassessment" },
+  { icon: "pre-uni-icon-17.png", number: "02", title: "Personalised\nLearning Plan", text: "Tailored to your\nchild's needs" },
+  { icon: "pre-uni-icon-18.png", number: "03", title: "Guided\nLearning", text: "With Human + AI\nsupport" },
+  { icon: "pre-uni-icon-19.png", number: "04", title: "Skill\nBuilding", text: "Strengthen weak\nareas" },
+  { icon: "pre-uni-icon-20.png", number: "05", title: "Testing\n& Tracking", text: "Regular tests and\nprogress reports" },
+  { icon: "pre-uni-icon-21.png", number: "06", title: "Results &\nConfidence", text: "Better marks,\nstronger future" },
 ];
 
-const programItems = [
-  { title: "EWMT Core Program", subtitle: "Tailored to your child’s needs" },
-  { title: "OC Preparation (Year 3-4)", subtitle: "Tailored to your child’s needs" },
-  { title: "Selective Preparation (Year 5-6)", subtitle: "Tailored to your child’s needs" },
-  { title: "Years 7–10 (English, Maths, Science)", subtitle: "Tailored to your child’s needs" },
-  { title: "One-on-One Coaching", subtitle: "Tailored to your child’s needs" },
-  { title: "Writing Excellence", subtitle: "Tailored to your child’s needs" },
+const programs = [
+  { icon: "pre-uni-icon-22.png", title: "EWMT Core Program" },
+  { icon: "pre-uni-icon-23.png", title: "OC Preparation (Year 3-4)" },
+  { icon: "pre-uni-icon-24.png", title: "Selective Preparation (Year 5-6)" },
+  { icon: "pre-uni-icon-25.png", title: "Years 7-10 (English, Maths, Science)" },
+  { icon: "pre-uni-icon-26.png", title: "One-on-One Coaching" },
+  { icon: "pre-uni-icon-1.png", title: "Writing Excellence" },
+  { icon: "pre-uni-icon-2.png", title: "Small Group Live Classes" },
+  { icon: "pre-uni-icon-3.png", title: "Free Homework Help & Support" },
+];
+
+const reasons = [
+  { icon: "pre-uni-icon-4.png", title: "20+ Years of Proven Results", text: "Helping students succeed for decades." },
+  { icon: "pre-uni-icon-5.png", title: "25,000+ Students Trained", text: "Trusted by thousands of families." },
+  { icon: "pre-uni-icon-6.png", title: "Structured Learning System", text: "Clear roadmap with real progress." },
+  { icon: "pre-uni-icon-7.png", title: "Dedicated Parent Support", text: "Regular updates and guidance." },
+  { icon: "pre-uni-icon-8.png", title: "Recorded Class Sessions", text: "Access lessons anytime for revision" },
 ];
 
 const testimonials = [
   {
-    quote: "My daughter improved her writing confidence in just a few weeks. The teachers were supportive, structured, and made learning enjoyable.",
+    quote:
+      '"My daughter improved her writing confidence in just a few weeks. The teachers were supportive, structured, and made learning enjoyable."',
     author: "Sarah M",
   },
   {
-    quote: "The personalised feedback and clear learning plan made a huge difference to my son’s marks and mindset. We finally saw real progress.",
+    quote:
+      `"The personalised feedback and clear learning plan made a huge difference to my son's marks and mindset. We finally saw real progress."`,
     author: "James L",
   },
   {
-    quote: "Highly recommend Pre Uni College for parents wanting genuine academic results. My child feels more confident and motivated than ever.",
+    quote:
+      '"Highly recommend Pre Uni College for parents wanting genuine academic results. My child feels more confident and motivated than ever."',
     author: "Priya K",
   },
 ];
 
+function Button({ children, href = "#book", variant = "navy" }) {
+  return (
+    <a
+      href={href}
+      className={`inline-flex min-h-16 items-center justify-center rounded-lg px-8 text-lg font-extrabold transition ${
+        variant === "cyan"
+          ? "bg-[#00b0df] text-white hover:bg-[#079fca]"
+          : "bg-[#022e63] text-white hover:bg-[#063b7c]"
+      }`}
+    >
+      {children}
+    </a>
+  );
+}
+
+function Field({ label, required = false }) {
+  return (
+    <label className="block">
+      <span className="text-base font-extrabold text-[#3f4e6a]">
+        {label}
+        {required && <em className="ml-1 text-sm font-semibold text-[#b46d46]">(Required)</em>}
+      </span>
+      <input
+        aria-label={label}
+        className="mt-3 h-14 w-full rounded-lg border border-[#d9dce1] bg-white px-4 text-base outline-none transition focus:border-[#00b0df] focus:ring-2 focus:ring-[#00b0df]/15"
+      />
+    </label>
+  );
+}
+
+function SectionHeading({ title, text, light = false }) {
+  return (
+    <div className="mx-auto max-w-5xl text-center">
+      <h2 className={`text-4xl font-black leading-tight tracking-tight md:text-5xl ${light ? "text-white" : "text-[#022e63]"}`}>
+        {title}
+      </h2>
+      {text && (
+        <p className={`mt-6 text-xl leading-8 ${light ? "text-white" : "text-black"}`}>
+          {text}
+        </p>
+      )}
+    </div>
+  );
+}
+
 export default function Home() {
   return (
-    <main className="min-h-screen bg-slate-50 text-slate-950">
-      <section className="relative overflow-hidden bg-[radial-gradient(circle_at_top_left,_rgba(14,165,233,0.18),transparent_28%),radial-gradient(circle_at_top_right,_rgba(16,185,129,0.16),transparent_26%)] px-6 py-12 sm:px-10 lg:px-16">
-        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.4fr_1fr] lg:items-center">
-          <div className="space-y-6">
-            <span className="inline-flex rounded-full bg-sky-100 px-4 py-2 text-sm font-semibold uppercase tracking-[0.24em] text-sky-700 shadow-sm shadow-sky-200/80">
-              Pre Uni College
-            </span>
-            <div className="space-y-5">
-              <h1 className="text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl">
-                Is Your Child Getting the Right Support to Succeed at School?
-              </h1>
-              <p className="max-w-2xl text-base leading-8 text-slate-700 sm:text-lg">
-                Personalised support in Reading, Writing, Maths and Thinking Skills to help your child build confidence, close learning gaps and perform better at school.
-              </p>
-            </div>
-            <div className="flex flex-col gap-4 sm:flex-row">
-              <a href="#book"
-                className="inline-flex items-center justify-center rounded-full bg-slate-950 px-6 py-4 text-sm font-semibold text-white transition hover:bg-slate-800"
-              >
-                Book Free Learning Check
-              </a>
-              <a href="#chat"
-                className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-4 text-sm font-semibold text-slate-950 transition hover:border-slate-400 hover:bg-slate-50"
-              >
-                Chat on WhatsApp
-              </a>
+    <main className="overflow-x-hidden bg-[#fbfdfe] text-black">
+      <section className="relative flex min-h-[760px] items-center bg-[url('/preuni-assets/hero-img.jpg')] bg-cover bg-top bg-no-repeat">
+        <div className="absolute inset-0 bg-white/50" />
+        <div className="relative mx-auto w-full max-w-[1280px] px-6 py-20 md:px-10">
+          <div className="max-w-[650px]">
+            <Image src={asset("pre_logo.jpg")} alt="Pre Uni College" width={315} height={52} className="mb-8 h-auto w-[315px] object-contain" priority />
+            <h1 className="max-w-full text-[40px] font-black leading-[1.08] tracking-tight text-[#022e63] sm:text-5xl sm:leading-[1.06] md:text-[64px]">
+              <span className="hidden sm:inline">Is Your Child Getting the Right Support to Succeed at School?</span>
+              <span className="block sm:hidden">
+                Is Your Child<br />
+                Getting the Right<br />
+                Support to<br />
+                Succeed at School?
+              </span>
+            </h1>
+            <p className="mt-8 max-w-full text-xl leading-9 text-black sm:text-2xl sm:leading-10">
+              Personalised support in Reading, Writing, Maths and Thinking Skills to help your child build confidence, close learning gaps and perform better at school.
+            </p>
+            <div className="mt-8 flex flex-col gap-5 sm:flex-row">
+              <Button>Book Free Learning Check</Button>
+              <Button href="https://wa.me/61415937649" variant="cyan">Chat on WhatsApp</Button>
             </div>
           </div>
-
-          <div className="relative">
-            <div className="overflow-hidden rounded-[32px] border border-slate-200 bg-white p-8 shadow-xl shadow-slate-200/60">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Claim Your Free Learning Check</p>
-              <h2 className="mt-6 text-3xl font-semibold text-slate-950">Free assessment and personalised plan</h2>
-              <p className="mt-3 text-sm leading-6 text-slate-600">
-                Fill in your details and we’ll contact you to book a quick learning check for your child.
-              </p>
-              <form className="mt-8 space-y-4" id="book">
-                <label className="block">
-                  <span className="text-sm font-medium text-slate-700">Parent Name <span className="text-rose-500">(Required)</span></span>
-                  <input type="text" placeholder="Your name"
-                    className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-sky-400 focus:ring-2 focus:ring-sky-100"
-                  />
-                </label>
-                <label className="block">
-                  <span className="text-sm font-medium text-slate-700">Phone Number <span className="text-rose-500">(Required)</span></span>
-                  <input type="tel" placeholder="e.g. 0412 345 678"
-                    className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-sky-400 focus:ring-2 focus:ring-sky-100"
-                  />
-                </label>
-                <label className="block">
-                  <span className="text-sm font-medium text-slate-700">Email <span className="text-rose-500">(Required)</span></span>
-                  <input type="email" placeholder="example@mail.com"
-                    className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-sky-400 focus:ring-2 focus:ring-sky-100"
-                  />
-                </label>
-                <label className="block">
-                  <span className="text-sm font-medium text-slate-700">Child Year</span>
-                  <input type="text" placeholder="Year level"
-                    className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-sky-400 focus:ring-2 focus:ring-sky-100"
-                  />
-                </label>
-                <label className="block">
-                  <span className="text-sm font-medium text-slate-700">Program Interest</span>
-                  <input type="text" placeholder="e.g. Writing, Maths, OC prep"
-                    className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-sky-400 focus:ring-2 focus:ring-sky-100"
-                  />
-                </label>
-                <button type="submit"
-                  className="mt-4 w-full rounded-full bg-amber-400 px-6 py-4 text-base font-semibold text-slate-950 transition hover:bg-amber-300"
-                >
-                  Claim My Free Check
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-
-        <div className="mx-auto mt-10 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {[
-            { label: "25,000+", subtitle: "Students Helped" },
-            { label: "20+ Years", subtitle: "Proven Results" },
-            { label: "Structured", subtitle: "Learning System" },
-            { label: "Parent Support", subtitle: "Included" },
-          ].map((item) => (
-            <div key={item.label} className="rounded-3xl border border-slate-200 bg-white p-6 text-center shadow-sm shadow-slate-200/40">
-              <p className="text-3xl font-semibold text-sky-700">{item.label}</p>
-              <p className="mt-2 text-sm text-slate-600">{item.subtitle}</p>
-            </div>
-          ))}
         </div>
       </section>
 
-      <section className="px-6 py-16 sm:px-10 lg:px-16">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-            <div className="relative overflow-hidden rounded-[32px] bg-slate-900 px-6 py-10 text-white sm:px-10">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(56,189,248,0.22),transparent_35%),radial-gradient(circle_at_bottom_right,_rgba(16,185,129,0.2),transparent_30%)]" />
-              <div className="relative z-10">
-                <span className="mb-3 inline-flex rounded-full bg-slate-800/80 px-3 py-1 text-sm uppercase tracking-[0.24em] text-sky-200">
-                  Does This Sound Familiar?
-                </span>
-                <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-                  Many parents feel concerned that their child isn’t reaching their full potential at school, even when they know they’re capable of more.
-                </h2>
-                <p className="mt-5 max-w-xl text-base leading-8 text-slate-200">
-                  If this sounds familiar, you’re not alone. We help students build confidence and stronger results through clear learning routines and expert support.
-                </p>
-              </div>
+      <section className="relative z-10 bg-[#fbfdfe] px-6 py-5 md:px-10">
+        <div className="mx-auto grid max-w-[1280px] gap-12 lg:grid-cols-[590px_625px] lg:items-start lg:justify-between">
+          <div className="grid gap-6 sm:grid-cols-2">
+            {stats.map((item) => (
+              <article key={item.value} className="flex min-h-[248px] flex-col items-center justify-center rounded-xl bg-white p-8 text-center shadow-[0_0_14px_rgba(0,0,0,0.18)]">
+                <Image src={asset(item.icon)} alt="" width={42} height={42} className="h-11 w-11 object-contain" />
+                <h3 className="mt-6 text-2xl font-black text-[#3f4e6a]">{item.value}</h3>
+                <p className="mt-4 text-lg leading-7">{item.text}</p>
+              </article>
+            ))}
+          </div>
+
+          <aside id="book" className="overflow-hidden rounded-[20px] bg-white shadow-[0_0_14px_rgba(0,0,0,0.12)] lg:-mt-[360px]">
+            <div className="bg-[#022e63] px-10 py-12 text-center">
+              <h2 className="text-4xl font-black leading-tight text-white md:text-5xl">
+                Claim Your<br />Free Learning Check
+              </h2>
             </div>
-            <div className="grid gap-4 sm:grid-cols-2">
+            <form className="space-y-6 px-10 py-12">
+              <Field label="Parent Name" required />
+              <Field label="Phone Number" required />
+              <Field label="Email" required />
+              <Field label="Child Year" />
+              <Field label="Program Interest" />
+              <button className="mt-2 h-16 w-full rounded-lg bg-[#f4b400] text-lg font-black text-black transition hover:bg-[#e9aa00]">
+                Claim My Free Check
+              </button>
+            </form>
+          </aside>
+        </div>
+      </section>
+
+      <section className="bg-[#fbfdfe] px-6 py-20 md:px-10">
+        <div className="mx-auto grid max-w-[1280px] gap-12 lg:grid-cols-[613px_1fr] lg:items-center">
+          <Image src={asset("parent-img.jpg")} alt="Concerned parent" width={613} height={816} className="h-[816px] w-full rounded-[20px] object-cover object-center max-lg:h-[520px]" />
+          <div>
+            <h2 className="text-4xl font-black leading-tight text-[#022e63] md:text-5xl">
+              Does This Sound Familiar?
+            </h2>
+            <p className="mt-7 text-xl leading-9">
+              Many parents feel concerned that their child isn&apos;t reaching their full potential at school, even when they know they&apos;re capable of more. If this sounds familiar, you&apos;re not alone.
+            </p>
+            <div className="mt-9 grid gap-5 sm:grid-cols-2">
               {familiarItems.map((item) => (
-                <div key={item.title} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-200/40">
-                  <h3 className="text-lg font-semibold text-slate-900">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">{item.subtitle}</p>
-                </div>
+                <article key={item.title} className="min-h-[205px] rounded-xl bg-white p-7 shadow-[0_0_14px_rgba(0,0,0,0.16)]">
+                  <Image src={asset(item.icon)} alt="" width={32} height={32} className="h-8 w-8 object-contain" />
+                  <h3 className="mt-4 text-2xl font-black leading-tight text-[#3f4e6a]">{item.title}</h3>
+                  <p className="mt-4 text-lg leading-8">{item.text}</p>
+                </article>
               ))}
             </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-slate-50 px-6 py-16 sm:px-10 lg:px-16">
-        <div className="mx-auto max-w-7xl">
-          <div className="text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-sky-700">Six step success</p>
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">Our Six Step Success System</h2>
-            <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-slate-600">
-              A structured system designed to help your child grow, improve and succeed.
-            </p>
-          </div>
-          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {stepItems.map((item) => (
-              <div key={item.number} className="rounded-[28px] border border-slate-200 bg-white p-8 text-center shadow-sm shadow-slate-200/40">
-                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-sky-600 text-white">
-                  <span className="text-lg font-bold">{item.number}</span>
-                </div>
-                <h3 className="mt-6 text-xl font-semibold text-slate-950">{item.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-slate-600">{item.subtitle}</p>
+      <section className="overflow-hidden bg-white px-6 py-24 md:px-10">
+        <SectionHeading
+          title="Our Six Step Success System"
+          text="A structured system designed to help your child grow, improve and succeed."
+        />
+        <div className="mx-auto mt-24 grid max-w-[1280px] grid-cols-2 gap-y-14 md:grid-cols-3 xl:grid-cols-6">
+          {successSteps.map((step) => (
+            <article key={step.number} className="text-center">
+              <p className="text-2xl font-black text-[#002d38]">{step.number}</p>
+              <Image src={asset(step.icon)} alt="" width={100} height={100} className="mx-auto mt-6 h-[105px] w-[105px] object-contain md:h-[116px] md:w-[116px]" />
+              <h3 className="mt-6 whitespace-pre-line text-2xl font-black leading-tight text-[#3f4e6a]">
+                {step.title}
+              </h3>
+              <p className="mt-7 whitespace-pre-line text-lg leading-8">{step.text}</p>
+            </article>
+          ))}
+        </div>
+        <div className="mt-20 text-center">
+          <Button>Book Free Learning Check</Button>
+        </div>
+      </section>
+
+      <section className="bg-[#0a356a] px-6 py-24 md:px-10">
+        <SectionHeading
+          title="Programs for Every Stage"
+          text="A structured system designed to help your child grow, improve and succeed."
+          light
+        />
+        <div className="mx-auto mt-12 grid max-w-[1280px] gap-6 md:grid-cols-2">
+          {programs.map((program) => (
+            <article key={program.title} className="flex min-h-[194px] items-center gap-8 rounded-xl bg-white px-11 py-8">
+              <Image src={asset(program.icon)} alt="" width={100} height={100} className="h-[100px] w-[100px] shrink-0 object-contain" />
+              <div>
+                <h3 className="text-2xl font-black leading-tight text-[#3f4e6a]">{program.title}</h3>
+                <p className="mt-2 text-xl">Tailored to your child&apos;s needs</p>
               </div>
-            ))}
-          </div>
-          <div className="mt-10 flex justify-center">
-            <a href="#book" className="inline-flex rounded-full bg-slate-950 px-8 py-4 text-base font-semibold text-white transition hover:bg-slate-800">
-              Book Free Learning Check
-            </a>
-          </div>
+            </article>
+          ))}
         </div>
       </section>
 
-      <section className="bg-slate-950 px-6 py-16 text-white sm:px-10 lg:px-16">
-        <div className="mx-auto max-w-7xl">
-          <div className="text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-sky-300">Programs for every stage</p>
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Programs for Every Stage</h2>
-            <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-slate-300">
-              A structured system designed to help your child grow, improve and succeed.
-            </p>
-          </div>
-          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {programItems.map((item) => (
-              <div key={item.title} className="rounded-[28px] border border-slate-800 bg-slate-900 p-8 shadow-lg shadow-slate-950/20">
-                <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-sky-500 text-white">
-                  <span className="text-lg font-semibold">✓</span>
-                </div>
-                <h3 className="mt-6 text-xl font-semibold text-white">{item.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-slate-300">{item.subtitle}</p>
+      <section className="bg-white px-6 py-24 md:px-10">
+        <SectionHeading
+          title="Why Thousands of Families Choose Pre Uni College"
+          text="Trusted by families for over 20 years, we combine proven teaching systems, expert educators, and personalised support to help students achieve stronger academic results with confidence."
+        />
+        <div className="mx-auto mt-20 grid max-w-[1280px] gap-10 sm:grid-cols-2 lg:grid-cols-5">
+          {reasons.map((reason) => (
+            <article key={reason.title} className="grid grid-cols-[64px_1fr] gap-5">
+              <Image src={asset(reason.icon)} alt="" width={64} height={64} className="mt-11 h-16 w-16 object-contain" />
+              <div>
+                <h3 className="text-2xl font-black leading-tight text-[#3f4e6a]">{reason.title}</h3>
+                <p className="mt-5 text-lg leading-8">{reason.text}</p>
               </div>
-            ))}
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-[#fbfdfe] px-6 py-20 md:px-10">
+        <div className="mx-auto grid max-w-[1280px] gap-14 lg:grid-cols-[560px_1fr] lg:items-center">
+          <Image src={asset("ebook-writing-formula-2.png")} alt="The Ultimate Writing Formula for High Marks" width={560} height={644} className="mx-auto max-h-[720px] w-full max-w-[560px] object-contain" />
+          <div>
+            <h2 className="text-4xl font-black leading-tight text-[#022e63] md:text-5xl">
+              The Ultimate Writing Formula for High Marks
+            </h2>
+            <p className="mt-8 text-xl leading-8">Learn the simple framework top students use to write high-scoring responses</p>
+            <form className="mt-8 space-y-6">
+              <Field label="Name" required />
+              <Field label="Email" required />
+              <Field label="Phone" required />
+              <button className="h-16 w-full rounded-lg bg-[#f4b400] text-lg font-black text-black transition hover:bg-[#e9aa00]">
+                Send Me The Free Guide
+              </button>
+            </form>
           </div>
         </div>
       </section>
 
-      <section className="px-6 py-16 sm:px-10 lg:px-16">
-        <div className="mx-auto max-w-7xl">
-          <div className="text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-sky-700">Parent success stories</p>
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">What Parents Are Saying</h2>
-          </div>
-          <div className="mt-12 grid gap-6 lg:grid-cols-3">
-            {testimonials.map((item) => (
-              <div key={item.author} className="rounded-[32px] border border-slate-200 bg-white p-8 shadow-sm shadow-slate-200/40">
-                <div className="text-4xl text-sky-600">“</div>
-                <p className="mt-4 text-sm leading-7 text-slate-700">{item.quote}</p>
-                <p className="mt-6 font-semibold text-slate-950">{item.author}</p>
-              </div>
-            ))}
-          </div>
+      <section className="bg-[#fbfdfe] px-6 pb-24 pt-4 md:px-10">
+        <SectionHeading title="What Parents Are Saying" />
+        <div className="mx-auto mt-14 grid max-w-[1140px] gap-7 lg:grid-cols-3">
+          {testimonials.map((item) => (
+            <article key={item.author} className="flex min-h-[410px] flex-col items-center justify-center rounded-xl bg-white p-10 text-center">
+              <Image src={asset("pre-uni-icon-9.png")} alt="" width={58} height={71} className="h-[71px] w-[58px] object-contain" />
+              <p className="mt-9 text-xl leading-9">{item.quote}</p>
+              <h3 className="mt-7 text-2xl font-black text-[#002d38]">{item.author}</h3>
+            </article>
+          ))}
         </div>
       </section>
 
-      <section className="bg-slate-950 px-6 py-20 text-white sm:px-10 lg:px-16">
-        <div className="mx-auto max-w-7xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-sky-300">Limited availability</p>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">Limited Free Learning Checks Available This Week</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-slate-300">Spots fill quickly due to high demand. Don’t miss out!</p>
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a href="#book" className="inline-flex rounded-full bg-slate-200 px-8 py-4 text-base font-semibold text-slate-950 transition hover:bg-slate-100">
-              Book Free Learning Check
-            </a>
-            <a href="#chat" className="inline-flex rounded-full border border-slate-200 bg-transparent px-8 py-4 text-base font-semibold text-white transition hover:bg-white/10">
-              Chat on WhatsApp
-            </a>
-          </div>
-          <p className="mt-8 text-sm text-slate-400">©2026 Pre Uni College. All rights reserved.</p>
+      <footer className="bg-[#0a356a] px-6 py-24 text-center md:px-10">
+        <h2 className="mx-auto max-w-[1120px] text-4xl font-black leading-tight text-white md:text-5xl">
+          Limited Free Learning Checks Available This Week
+        </h2>
+        <p className="mt-7 text-xl text-white">Spots fill quickly due to high demand. Don&apos;t miss out!</p>
+        <div className="mt-8 flex flex-col justify-center gap-5 sm:flex-row">
+          <Button>Book Free Learning Check</Button>
+          <Button href="https://wa.me/61415937649" variant="cyan">Chat on WhatsApp</Button>
         </div>
-      </section>
+        <p className="mt-24 text-lg text-white">©2026 Pre Uni College. All rights reserved.</p>
+      </footer>
 
-      <div className="fixed bottom-6 right-6 z-50 rounded-full border border-slate-200 bg-white/95 px-4 py-3 shadow-2xl shadow-slate-900/10 backdrop-blur-xl sm:px-5">
-        <div className="flex items-center gap-3">
-          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-emerald-500 text-xl text-white shadow-lg shadow-emerald-500/25">
-            <span>💬</span>
-          </div>
-          <div className="hidden sm:block">
-            <p className="text-xs uppercase tracking-[0.3em] text-slate-500">Need Help?</p>
-            <p className="text-sm font-semibold text-slate-900">Chat with us</p>
-          </div>
-        </div>
-      </div>
+      <a
+        href="https://wa.me/61415937649"
+        className="fixed bottom-9 right-7 z-50 flex items-center gap-3"
+        aria-label="Chat on WhatsApp"
+      >
+        <span className="hidden w-[156px] rounded bg-white px-4 py-3 text-sm font-black leading-5 text-[#1d2939] shadow-[0_4px_18px_rgba(0,0,0,0.08)] sm:block">
+          Need Help? <strong>Chat with us</strong>
+        </span>
+        <span className="flex h-[60px] w-[60px] items-center justify-center rounded-full bg-[#2db742] text-white shadow-[0_5px_14px_rgba(0,0,0,0.28)]">
+          <svg viewBox="0 0 32 32" className="h-9 w-9 fill-current" aria-hidden="true">
+            <path d="M16.01 3.2A12.73 12.73 0 0 0 5.2 22.65L3.9 28.8l6.28-1.24A12.73 12.73 0 1 0 16.01 3.2Zm0 22.98c-1.95 0-3.86-.55-5.5-1.6l-.4-.25-3.74.74.78-3.63-.27-.42a10.31 10.31 0 1 1 9.13 5.16Zm5.7-7.72c-.31-.16-1.84-.9-2.12-1-.29-.11-.5-.16-.71.16-.21.31-.82 1-.99 1.21-.18.21-.36.24-.67.08-.31-.16-1.32-.49-2.51-1.55-.93-.83-1.55-1.85-1.73-2.16-.18-.31-.02-.48.14-.64.14-.14.31-.36.47-.54.16-.18.21-.31.31-.52.11-.21.05-.39-.03-.55-.08-.16-.71-1.71-.97-2.35-.25-.61-.51-.53-.71-.54h-.6c-.21 0-.55.08-.84.39-.29.31-1.1 1.08-1.1 2.63 0 1.55 1.13 3.05 1.29 3.26.16.21 2.23 3.4 5.39 4.77.75.32 1.34.52 1.8.66.76.24 1.45.21 1.99.13.61-.09 1.84-.75 2.1-1.47.26-.72.26-1.34.18-1.47-.08-.13-.29-.21-.6-.37Z" />
+          </svg>
+        </span>
+      </a>
     </main>
   );
 }
