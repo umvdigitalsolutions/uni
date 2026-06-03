@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Free Learning Check - Pre Uni College",
+  title: "Home Page - Pre Uni College Digital",
   description:
-    "Personalised support in Reading, Writing, Maths and Thinking Skills.",
+    "K-12 learning powered by real teachers and smart AI.",
 };
 
 export default function RootLayout({ children }) {
